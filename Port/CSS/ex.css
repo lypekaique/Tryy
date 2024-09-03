@@ -1,0 +1,21 @@
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Defina a altura desejada para o carrossel */
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  overflow: hidden; /* Oculta imagens que estão fora da viewport do slider */
+}
+
+.swiper-slide {
+  min-width: 100%; /* Cada slide ocupa 100% da largura do contêiner */
+  flex-shrink: 0;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta a imagem para cobrir o slide sem distorção */
+}
