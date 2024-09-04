@@ -216,11 +216,6 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rh {
 div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
   left: 100vw;}
   div#pcWrapper > main > ul#background_top > li > div.img {
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    -webkit-transform: skewX(20deg);
-    -webkit-transition: left 0.8s, -webkit-filter 0.8s ease;
-    -webkit-filter: grayscale(100%);
     display: block;
     z-index: -1;
     position: relative;
@@ -233,9 +228,9 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     opacity: 0;
     transition: left 0.8s, -webkit-filter 0.8s ease;
     transition: left 0.8s, filter 0.8s ease;
-    transition: left 0.8s, filter 0.8s ease, -webkit-filter 0.8s ease;
   }
-  div#pcWrapper > main > ul#background_top > li > div.img:hover {
+  div#pcWrapper > main > ul#background_top > li.chg_clr > div.img, div#pcWrapper > main > ul#background_top > li.crr > div.img {
+
     filter: grayscale(0%);
   }
 
@@ -269,8 +264,107 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     background-position: center top;
     background-size: cover;
   }
-
-
+  div#pcWrapper > main > ul#background_top > li > div.cover {
+    -webkit-transition: height 1.4s;
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    transition: height 1.4s;}
+    div#pcWrapper > main > ul#background_top > li > div.cover.shrink {
+      height: 0%;
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(1) > div.cover, div#pcWrapper > main > ul#background_top > li:nth-of-type(4) > div.cover, div#pcWrapper > main > ul#background_top > li:nth-of-type(6) > div.cover {
+      top: 0;
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(2) > div.cover, div#pcWrapper > main > ul#background_top > li:nth-of-type(3) > div.cover, div#pcWrapper > main > ul#background_top > li:nth-of-type(5) > div.cover {
+      bottom: 0;
+    }
+    div#pcWrapper > main > ul#background_top > li > div.logo {
+      -webkit-transform: skewX(20deg) translateY(5px);
+      -webkit-transition: left 0.8s, opacity 0.6s, -webkit-transform 0.6s;
+      display: block;
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: -20vw;
+      width: 60vw;
+      height: 100%;
+      transform: skewX(20deg) translateY(5px);
+      background-repeat: no-repeat;
+      background-size: auto 18%;
+      opacity: 0;
+      transition: left 0.8s, opacity 0.6s, -webkit-transform 0.6s;
+      transition: left 0.8s, opacity 0.6s, transform 0.6s;
+      transition: left 0.8s, opacity 0.6s, transform 0.6s, -webkit-transform 0.6s;
+    }
+    div#pcWrapper > main > ul#background_top > li:first-child > div.logo {
+      background-position: 60% 50%;
+    }
+    div#pcWrapper > main > ul#background_top > li:last-child > div.logo {
+      background-position: 40% 50%;
+    }
+    div#pcWrapper > main > ul#background_top > li:not(:first-child):not(:last-child) > div.logo {
+      background-position: center center;
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(1) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/darksouls.png");
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(2) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/sekiro.png");
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(3) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/ac6.png");
+      /*background-size: auto 24%;*/
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(4) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/eldenring.png");
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(5) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/bloodborne.png");
+    }
+    div#pcWrapper > main > ul#background_top > li:nth-of-type(6) > div.logo {
+      background-image: url("//media.fromsoftware.jp/fromsoftware/jp/static/img/top/pc/logo/deracine.png");
+    }
+    div#pcWrapper > main > ul#background_top > li::after {
+      -webkit-transition: opacity 0.8s;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      content: "";
+      opacity: 0.6;
+      transition: opacity 0.8s;
+    }
+    div#pcWrapper > main > ul#background_top > li.crr > div.logo {
+      -webkit-transform: skewX(20deg) translateY(0px);
+      left: -15vw;
+      transform: skewX(20deg) translateY(0px);
+      opacity: 1;
+    }
+    div#pcWrapper > main > ul#background_top > li.crr::after {
+      opacity: 0.2;
+    }
+    div#pcWrapper > main > ul#background_top > li.curr::after {
+      opacity: 0;
+    }
+    div#pcWrapper > main > ul#background_top.first_fc > li:nth-of-type(3) > div.logo {
+      -webkit-transform: skewX(20deg) translateY(0px);
+      left: -15vw;
+      transform: skewX(20deg) translateY(0px);
+      opacity: 1;
+    }
+    div#pcWrapper > main > ul#background_top.first_fc > li:nth-of-type(3)::after {
+      opacity: 0.2;
+    }
+    div#pcWrapper > main > ul#background_top.first_fc > li:not(:nth-of-type(3)) ::after {
+      opacity: 0.6;
+    }
   div#pcWrapper > div#corp_logo {
     -webkit-transform: translateY(50px);
     -webkit-transition: opacity 0.7s, -webkit-transform 0.7s;
@@ -283,7 +377,7 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     height: 24px;
     margin: auto 0;
     transform: translateY(50px);
-    background-image: url("//Front-End/HTML/img/a8f22a72d7ea78233da6c38de14593e4.jpg");
+    background-image: url("../");
     background-position: 0% 0%;
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -293,6 +387,41 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     transition: opacity 0.7s, transform 0.7s;
     transition: opacity 0.7s, transform 0.7s, -webkit-transform 0.7s;
  
+  }
+  div#pcWrapper > div#corp_logo.step1 {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  div#pcWrapper > div#corp_logo.step1.step2 {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  div#pcWrapper > div#corp_logo.step1.step2.step3 {
+    top: calc(-100vh + 24px + 108px + 200px);
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+  div#pcWrapper > div#corp_logo {
+    -webkit-transform: translateY(50px);
+    -webkit-transition: opacity 0.7s, -webkit-transform 0.7s;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 96px;
+    width: 280px;
+    height: 24px;
+    margin: auto 0;
+    transform: translateY(50px);
+    background-image: url("//Port/HTML/img/background_c.jpg");
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.7s, -webkit-transform 0.7s;
+    transition: opacity 0.7s, transform 0.7s;
+    transition: opacity 0.7s, transform 0.7s, -webkit-transform 0.7s;
   }
   div#pcWrapper > div#corp_logo.step1 {
     -webkit-transform: translateY(0px);
@@ -309,4 +438,14 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     top: calc(-100vh + 24px + 108px + 200px);
     transform: translateY(-100px);
     opacity: 1;
+  }
+  div#pcWrapper > main > ul#background_top > li::before {
+    display: block;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ""; 
   }

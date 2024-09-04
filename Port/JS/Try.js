@@ -1,5 +1,128 @@
 $(document).ready(function() {
-    var cur_idx, slct_Id, cur_anm = false;
+  var transitionend = "webkitTransitionEnd mozTransitionEnd oTransitionEnd transitionend";
+  window.setTimeout(function () {
+    $('div#corp_logo').addClass('step1').on(transitionend, function () {
+      $(this).off(transitionend);
+
+      var objSectionEldenring = $('ul#background_top').children('li').eq(2);
+      objSectionEldenring.children('div.border').addClass('extend').on(transitionend, function () {
+        $(this).off(transitionend).next('div.img').css('opacity', 1);
+
+        window.setTimeout(function () {
+        
+          $('div#corp_logo').addClass('step2').on(transitionend, function () {
+            $(this).off(transitionend);
+            $('div#corp_logo').addClass('step3');
+          });
+
+          objSectionEldenring.children('div.cover').addClass('shrink').on(transitionend, function () {
+            $(this).off(transitionend); //
+
+        
+            var cur_idx = 2; //
+
+            $('ul#background_top').addClass('first_fc').children('li').each(function () {
+              if ($(this).index() < cur_idx) {
+                $(this).addClass('slide_lh');
+              } else if ($(this).index() > cur_idx) {
+                $(this).addClass('slide_rh');
+              } else {
+                $(this).addClass('crr');
+
+                $(this).addClass('chg_clr').on(transitionend, function () {
+                  $(this).off(transitionend);
+
+                  window.setTimeout(function () {
+                    $('#background_top').children('li').not(':eq(2)').children('div.cover').addClass('shrink').on(transitionend, function () {
+                      $(this).off(transitionend);
+                      $('#splash_cover').remove();
+                    });
+
+                    $('#background_top').children('li').not(':eq(2)').children('div.img').css('opacity', 1);
+
+                    objSectionEldenring.children('div.border').addClass('hide');
+                  }, 150);
+                });
+              }
+            });
+          });
+        }, 250);
+      });
+    });
+  }, 500);
+  function pc_splashPerformance() {
+    if (ViewportFlag == 'sp') {
+      $('div.swiper-wrapper').find('img').each(function () {
+        $(this).on('load', function () {
+          $(this).removeAttr('data-src').fadeIn('fast');
+        }).attr('src', $(this).attr('data-src')).css('display', 'none');
+      });
+      return false;
+    }
+  
+  
+    window.setTimeout(function () {
+      $('div#corp_logo').addClass('step1').on(transitionend, function () {
+        $(this).off(transitionend);
+  
+        var objSectionEldenring = $('ul#background_top').children('li').eq(2);
+        objSectionEldenring.children('div.border').addClass('extend').on(transitionend, function () {
+          $(this).off(transitionend).next('div.img').css('opacity', 1);
+  
+          window.setTimeout(function () {
+            $('div#corp_logo').addClass('step2').on(transitionend, function () {
+              $(this).off(transitionend);
+              $('div#corp_logo').addClass('step3');
+            });
+  
+            objSectionEldenring.children('div.cover').addClass('shrink').on(transitionend, function () {
+              $(this).off(transitionend); //
+  
+              var cur_idx = 2; //
+  
+              $('ul#background_top').addClass('first_fc').children('li').each(function () {
+                if ($(this).index() < cur_idx) {
+             
+                  $(this).addClass('slide_lh');
+                } else if ($(this).index() > cur_idx) {
+                  $(this).addClass('slide_rh');
+                } else {
+
+                  $(this).addClass('crr');
+  
+                  $(this).addClass('chg_clr').on(transitionend, function () {
+                    $(this).off(transitionend); 
+  
+                    window.setTimeout(function () {
+              
+                      $('#background_top').children('li').not(':eq(2)').children('div.cover').addClass('shrink').on(transitionend, function () {
+                        $(this).off(transitionend);
+                        $('#splash_cover').remove();
+                      });
+  
+                      $('#background_top').children('li').not(':eq(2)').children('div.img').css('opacity', 1);
+  
+                      objSectionEldenring.children('div.border').addClass('hide'); //
+  
+                      $('ol#pc_menu').css('opacity', 1);
+                      $('div#pcNewsWrapper').css('opacity', 1);
+                      $('div#pcLinkWrapper').css('opacity', 1);
+                    }, 150);
+                  });
+                }
+              }); 
+            });
+          }, 250);
+        });
+      });
+    }, 500);
+  }
+  
+  
+  
+  
+  
+  var cur_idx, slct_Id, cur_anm = false;
 
     $('ul#background_top').children('li').mouseover(function () {
         cur_idx = $(this).index();
@@ -54,57 +177,3 @@ $(document).ready(function() {
         });
     }
 });
-window.setTimeout(function () {
-    $('div#corp_logo').addClass('step1').on(transitionend, function () {
-      $(this).off(transitionend);
-
-      var objSectionEldenring = $('ul#background_top').children('li').eq(2);
-      objSectionEldenring.children('div.border').addClass('extend').on(transitionend, function () {
-        $(this).off(transitionend).next('div.img').css('opacity', 1);
-
-        window.setTimeout(function () {
-        
-          $('div#corp_logo').addClass('step2').on(transitionend, function () {
-            $(this).off(transitionend);
-            $('div#corp_logo').addClass('step3');
-          });
-
-          objSectionEldenring.children('div.cover').addClass('shrink').on(transitionend, function () {
-            $(this).off(transitionend); //
-
-        
-            var cur_idx = 2; //
-
-            $('ul#background_top').addClass('first_fc').children('li').each(function () {
-              if ($(this).index() < cur_idx) {
-                $(this).addClass('slide_lh');
-              } else if ($(this).index() > cur_idx) {
-                $(this).addClass('slide_rh');
-              } else {
-                $(this).addClass('crr');
-
-                $(this).addClass('chg_clr').on(transitionend, function () {
-                  $(this).off(transitionend);
-
-                  window.setTimeout(function () {
-                    $('#background_top').children('li').not(':eq(2)').children('div.cover').addClass('shrink').on(transitionend, function () {
-                      $(this).off(transitionend);
-                      $('#splash_cover').remove();
-                    });
-
-                    $('#background_top').children('li').not(':eq(2)').children('div.img').css('opacity', 1);
-
-                    objSectionEldenring.children('div.border').addClass('hide');
-
-                    $('ol#pc_menu').css('opacity', 1);
-                    $('div#pcNewsWrapper').css('opacity', 1);
-                    $('div#pcLinkWrapper').css('opacity', 1);
-                  }, 150);
-                });
-              }
-            });
-          });
-        }, 250);
-      });
-    });
-  }, 500);
