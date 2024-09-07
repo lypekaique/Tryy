@@ -264,6 +264,11 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
     background-position: center top;
     background-size: cover;
   }
+  div#pcWrapper > main > ul#background_top > li.chg_clr > div.img, div#pcWrapper > main > ul#background_top > li.crr > div.img {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
+    
   div#pcWrapper > main > ul#background_top > li > div.cover {
     -webkit-transition: height 1.4s;
     display: block;
@@ -283,8 +288,6 @@ div#pcWrapper > main > ul#background_top > li:nth-child(6).slide_rf {
       bottom: 0;
     }
     div#pcWrapper > main > ul#background_top > li > div.logo {
-      -webkit-transform: skewX(20deg) translateY(5px);
-      -webkit-transition: left 0.8s, opacity 0.6s, -webkit-transform 0.6s;
       display: block;
       z-index: 1;
       position: absolute;
